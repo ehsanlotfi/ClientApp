@@ -1,0 +1,2 @@
+# ClientApp
+simple angular project
