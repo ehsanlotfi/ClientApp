@@ -1,0 +1,9 @@
+::ng-deep button:focus {
+  box-shadow: none !important;
+}
+
+::ng-deep  .app-header .navbar-nav .dropdown-menu-right {
+  left: 10px !important;
+  right: auto !important;
+  top: 50px !important;
+}
