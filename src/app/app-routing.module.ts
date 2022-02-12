@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./site/site.module').then(mod=>mod.SiteModule)
   },
   {
-    path: '',
+    path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(mod=>mod.AdminModule)
   },
   {
