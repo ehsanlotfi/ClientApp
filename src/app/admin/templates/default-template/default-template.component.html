@@ -26,19 +26,14 @@
     </ul>
   </app-header>
   <div class="app-body">
-    <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
-      <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
-      <app-sidebar-minimizer></app-sidebar-minimizer>
-    </app-sidebar>
-    <main class="main">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active">
-          <span> </span>
-        </li>
-      </ol>
-      <div class="container-fluid">
-        <router-outlet></router-outlet>
-      </div>
-    </main>
-
+      <app-sidebar #appSidebar [fixed]="true" [display]="'lg'"
+                   [minimized]="rightNavFlag" (minimizedChange)="toggleMinimize($event)">
+        <app-sidebar-nav *ngIf="showNav" [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+        <app-sidebar-minimizer></app-sidebar-minimizer>
+      </app-sidebar>
+      <main class="main">
+        <div class="container-fluid position-relative">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
   </div>

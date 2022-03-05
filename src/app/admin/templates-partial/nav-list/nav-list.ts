@@ -3,7 +3,7 @@ import { INavData } from '@coreui/angular';
 export const navItems: any[] = [
   {
     name: 'داشبورد',
-    url: '/admin/dashboard/',
+    url: '',
     icon: 'icon-fo-box-filled'
   },
   {
@@ -11,10 +11,15 @@ export const navItems: any[] = [
     name: 'موجودیت‌ها'
   },
   {
-
-    name: 'مدیریت کاربران',
+    name: 'مدیریت',
     icon: 'icon-fo-box-filled',
-    url: '/admin/all-user',
-    permission:"admin"
+    url: '',
+    children: [
+      {
+        name: 'کاربران',
+        url: '/admin/dashboard/',
+        icon: 'icon-fo-box-filled'
+      },
+    ]
   }
 ];
