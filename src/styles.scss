@@ -1,1 +1,27 @@
+$themeCounter: 2;
+
+:host {
+    --theme-color-1: #00bcd4;
+    --theme-color-2: #5a5a5a;
+}
+
 @import "~@coreui/coreui/scss/coreui";
+
+@for $i from 1 through $themeCounter {
+    .bg-#{$i} {
+        background-color: var(--theme-color-#{$i});
+    }
+}
+
+@for $i from 1 through $themeCounter {
+    .text-#{$i} {
+        color: var(--theme-color-#{$i});
+    }
+}
+
+.rtl {
+    direction: rtl !important;
+}
+.ltr {
+    direction: ltr !important;
+}

@@ -69,11 +69,5 @@ export interface OwnerInfo {
 
 /** Role type of user */
 export enum RoleType {
-  Zaer = 'zaer', // زائر
-  Exchange = 'exchange', // صراف سطح 1
-  Broker = "broker", // صراف سطح 2
-  Shop = 'shop', // مدیر فروشگاه
-  Seller = "seller", // فروشنده
-  Admin = 'admin', // مدیرکل سیستم
-  Manager = 'manager' // مدیر سیستم
+  admin = 'admin', 
 }
