@@ -26,6 +26,7 @@ import {
   MaterialPersianDateAdapter,
   PERSIAN_DATE_FORMATS
 } from '@share/services/material.persian-date.adapter';
+import { UserService } from '@admin/services/user.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,9 @@ import {
     AgGridModule.withComponents([])
   ],
   entryComponents: [],
-  providers: [ BsModalService,
+  providers: [ 
+    BsModalService,
+    UserService,
     { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS },
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
   ],

@@ -13,11 +13,23 @@ export const navItems: any[] = [
   {
     name: 'مدیریت',
     icon: 'icon-fo-box-filled',
-    url: '',
+    url: '/close',
     children: [
       {
         name: 'کاربران',
-        url: '/admin/dashboard/',
+        url: 'aaa',
+        icon: 'icon-fo-box-filled'
+      },
+    ]
+  },
+  {
+    name: 'تست منو',
+    icon: 'icon-fo-box-filled',
+    url: '/admin',
+    children: [
+      {
+        name: 'کاربران',
+        url: '/admin/dashboard',
         icon: 'icon-fo-box-filled'
       },
     ]

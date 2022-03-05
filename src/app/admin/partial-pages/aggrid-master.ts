@@ -9,6 +9,7 @@ export class AgGridMaster {
   top = 50;
   skip = 0;
   gridApi: GridApi;
+  paginationPageSize = 20;
 
   loadmoreFlag = false;
 
@@ -31,6 +32,10 @@ export class AgGridMaster {
   ckeditorConfig = { height: "250px", width: "100%", language: "fa", skin: "kama", removePlugins: "elementspath" };
 
   constructor(private modalService: BsModalService) { }
+
+  onFilterChanged($event) {
+    
+  }
 
   onGridReady(params) {
     this.gridApi = params.api;

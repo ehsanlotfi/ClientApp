@@ -6,12 +6,12 @@ import { APIURI } from 'src/app/api-uri';
 @Injectable({
   providedIn: 'root'
 })
-export class BrokerService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public getList(params?: any) {
-    return this.http.get<any>(APIURI.one, { params });
+  public getList() {
+    return this.http.get<any>(APIURI.one);
   }
 
 
