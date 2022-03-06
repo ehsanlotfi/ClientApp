@@ -1,4 +1,4 @@
-import { GridOptions, GridApi, ColDef } from 'ag-grid-community';
+import { GridOptions, GridApi, ColDef, GetDataPath } from 'ag-grid-community';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmationDialogComponent } from '@admin/partial-pages/confirmation-dialog/confirmation-dialog';
 export class AgGridMaster {
@@ -10,6 +10,7 @@ export class AgGridMaster {
   skip = 0;
   gridApi: GridApi;
   paginationPageSize = 20;
+  rowData = [];
 
   loadmoreFlag = false;
 
@@ -34,7 +35,7 @@ export class AgGridMaster {
   constructor(private modalService: BsModalService) { }
 
   onFilterChanged($event) {
-    
+
   }
 
   onGridReady(params) {
@@ -135,9 +136,28 @@ export class AgGridMaster {
     this.gridApi.insertItemsAtIndex(index, data);
   };
 
+  getDataPath: GetDataPath = function (data) {
+    return data.orgHierarchy;
+  };
 
+  ToTree(data: any[]) {
+    function treePath(item, arr) {
+      arr = [item.name].concat(arr);
+      if (item.parent) {
+        item = data.find(f => f.id === item.parent);
+        return treePath(item, arr);
+      } else {
+        return arr;
+      }
+    }
 
+    data.forEach(f => { f.orgHierarchy = treePath(f, []) });
 
+    this.rowData = data;
+
+    console.log(this.rowData);
+
+  }
 
 }
 

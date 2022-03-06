@@ -1,4 +1,16 @@
 <ag-grid-angular class="ag-theme-balham"
+                 [rowData]="rowDataDefault"
+                 (gridReady)="onGridReady($event)"
+                 [gridOptions]="gridOptions"
+                 [pagination]="true"
+                 [paginationPageSize]="paginationPageSize"
+                 (filterChanged)="onFilterChanged($event)"
+                 [columnDefs]="columnsDefault"
+                 [enableRangeSelection]="true"
+                 [allowContextMenuWithControlKey]="true">
+</ag-grid-angular>
+<br> <br>
+<ag-grid-angular class="ag-theme-balham"
                  [rowData]="rowData"
                  (gridReady)="onGridReady($event)"
                  [gridOptions]="gridOptions"
