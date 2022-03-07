@@ -140,23 +140,23 @@ export class AgGridMaster {
     return data.orgHierarchy;
   };
 
-  ToTree(data: any[]) {
+  ToTree(data: any[], key: string, parenyKey: string, nameKey: string) {
+
     function treePath(item, arr) {
-      arr = [item.name].concat(arr);
-      if (item.parent) {
-        item = data.find(f => f.id === item.parent);
-        return treePath(item, arr);
+      arr = [item[nameKey]].concat(arr);
+      if (item[parenyKey]) {
+        item = data.find(f => f[key] === item[parenyKey]);
+        return item ? treePath(item, arr) : arr;
       } else {
         return arr;
       }
     }
 
-    data.forEach(f => { f.orgHierarchy = treePath(f, []) });
+    data.forEach(f => {
+      f.orgHierarchy = treePath(f, [])
+    });
 
-    this.rowData = data;
-
-    console.log(this.rowData);
-
+    return data;
   }
 
 }
