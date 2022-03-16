@@ -29,3 +29,13 @@ $themeCounter: 2;
 .ag-theme-balham {
     height: 500px;
 }
+
+.pointer {
+    cursor:pointer;
+    opacity: 0.8;
+    transition: .2s;
+    user-select: none;
+    :hover {
+      opacity: 1;
+    }
+}
