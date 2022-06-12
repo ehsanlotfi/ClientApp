@@ -4,7 +4,11 @@ export const navItems: any[] = [
   {
     name: 'داشبورد',
     url: '',
-    icon: 'icon-fo-box-filled'
+    iconComponent: { name: 'cil-speedometer' },
+    badge: {
+      color: 'info',
+      text: 'NEW'
+    }
   },
   {
     title: true,
@@ -12,25 +16,26 @@ export const navItems: any[] = [
   },
   {
     name: 'مدیریت',
-    icon: 'icon-fo-box-filled',
+    iconComponent: { name: 'cil-drop' },
     url: '/close',
     children: [
       {
         name: 'کاربران',
         url: 'aaa',
-        icon: 'icon-fo-box-filled'
+        linkProps: { fragment: 'someAnchor' },
+        iconComponent: { name: 'cil-pencil' },
       },
     ]
   },
   {
     name: 'تست منو',
-    icon: 'icon-fo-box-filled',
+    iconComponent: { name: 'cil-puzzle' },
     url: '/admin',
     children: [
       {
         name: 'کاربران',
         url: '/admin/dashboard',
-        icon: 'icon-fo-box-filled'
+        iconComponent: { name: 'cil-star' },
       },
     ]
   }

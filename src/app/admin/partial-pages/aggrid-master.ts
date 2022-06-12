@@ -140,7 +140,7 @@ export class AgGridMaster {
     return data.orgHierarchy;
   };
 
-  ToTree(data: any[], key: string, parenyKey: string, nameKey: string) {
+  ToTree(data: any[], key?: string, parenyKey?: string, nameKey?: string) {
 
     function treePath(item, arr) {
       arr = [item[nameKey]].concat(arr);

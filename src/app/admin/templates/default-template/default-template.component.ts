@@ -15,7 +15,9 @@ export class DefaultTemplateComponent implements OnInit, OnDestroy, AfterViewIni
   rightNavFlag = false;
   showNav = true;
   croppedImage: any = '/assets/images/profile.png';
-
+  public perfectScrollbarConfig = {
+    suppressScrollX: true,
+  };
   constructor(
     public activatedroute: ActivatedRoute, private router: Router,
     private cdr: ChangeDetectorRef,

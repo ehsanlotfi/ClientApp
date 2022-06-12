@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 
-import { AppAsideModule, AppBreadcrumbModule, AppFooterModule, AppHeaderModule, AppSidebarModule } from '@coreui/angular';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { LicenseManager } from "ag-grid-enterprise";
 import 'ag-grid-enterprise';
 import { AgGridModule } from 'ag-grid-angular';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+
+import {
+  PERFECT_SCROLLBAR_CONFIG,
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule,
+} from 'ngx-perfect-scrollbar';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,6 +21,7 @@ import * as _adminPages from '@admin/pages';
 import * as _adminTpl from '@admin/templates';
 import * as _adminTplPartial from '@admin/templates-partial';
 import * as agc from '@admin/partial-pages/ag-grid';
+
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
@@ -28,6 +33,30 @@ import {
 } from '@share/services/material.persian-date.adapter';
 import { UserService } from '@admin/services/user.service';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+};
+import {
+  AvatarModule,
+  BadgeModule,
+  BreadcrumbModule,
+  ButtonGroupModule,
+  ButtonModule,
+  CardModule,
+  DropdownModule,
+  FooterModule,
+  FormModule,
+  GridModule,
+  HeaderModule,
+  ListGroupModule,
+  NavModule,
+  ProgressModule,
+  SharedModule,
+  SidebarModule,
+ 
+  UtilitiesModule,
+
+} from '@coreui/angular';
 @NgModule({
   declarations: [
     _adminPages.AllUserListComponent,
@@ -45,23 +74,44 @@ import { UserService } from '@admin/services/user.service';
     ShareModule,
     ModalModule,
     AdminRoutingModule,
-    AppAsideModule,
+  
     MatFormFieldModule,
     MatDatepickerModule,
-    AppBreadcrumbModule.forRoot(),
-    AppFooterModule,
-    AppHeaderModule,
-    AppSidebarModule,
+
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     NgxPermissionsModule.forChild(),
     TabsModule.forRoot(),
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+
+    AvatarModule,
+    BadgeModule,
+    BreadcrumbModule,
+    ButtonGroupModule,
+    ButtonModule,
+    CardModule,
+    DropdownModule,
+    FooterModule,
+    FormModule,
+    GridModule,
+    HeaderModule,
+    ListGroupModule,
+    NavModule,
+    ProgressModule,
+    SharedModule,
+    SidebarModule,
+
+    UtilitiesModule,
   ],
   entryComponents: [],
-  providers: [ 
+  providers: [
+    
     BsModalService,
     UserService,
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
     { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS },
     { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
   ],

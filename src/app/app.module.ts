@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
-
+import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { SiteModule } from '@site/site.module';
     SiteModule,
     CarouselModule,
     HttpClientModule,
+    IconModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'
@@ -42,6 +43,7 @@ import { SiteModule } from '@site/site.module';
     NgxPermissionsModule.forRoot()
   ],
   providers: [
+    IconSetService
   ],
   bootstrap: [AppComponent]
 })
